@@ -8,6 +8,4 @@ import com.ana.cursomc.domain.Pagamento;
 @Repository
 public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
 
-	//JpaRepository<Categoria, Integer> -> <Objeto, tipo identificador>
-	
 }

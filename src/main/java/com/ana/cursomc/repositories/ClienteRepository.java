@@ -9,9 +9,6 @@ import com.ana.cursomc.domain.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-	//JpaRepository<Produto, Integer> -> <Objeto, tipo identificador(id)>
-	
 	@Transactional(readOnly=true)
 	Cliente findByEmail(String email);
-	
 }

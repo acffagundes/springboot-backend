@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class URL {
-	
- 	public static String decodeParam(String s) {
+
+	public static String decodeParam(String s) {
 		try {
 			return URLDecoder.decode(s, "UTF-8");
 		} 
@@ -23,7 +23,6 @@ public class URL {
 			list.add(Integer.parseInt(vet[i]));
 		}
 		return list;
-		//Usando Lambda
 		//return Arrays.asList(s.split(",")).stream().map(x -> Integer.parseInt(x)).collect(Collectors.toList());
 	}
 }

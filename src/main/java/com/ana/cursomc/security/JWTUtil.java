@@ -14,7 +14,8 @@ public class JWTUtil {
 	
 	@Value("${jwt.secret}")
 	private String secret;
- 	@Value("${jwt.expiration}")
+
+	@Value("${jwt.expiration}")
 	private Long expiration;
 	
 	public String generateToken(String username) {
@@ -37,7 +38,8 @@ public class JWTUtil {
 		}
 		return false;
 	}
- 	public String getUsername(String token) {
+
+	public String getUsername(String token) {
 		Claims claims = getClaims(token);
 		if (claims != null) {
 			return claims.getSubject();

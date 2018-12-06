@@ -8,6 +8,4 @@ import com.ana.cursomc.domain.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
-	//JpaRepository<Categoria, Integer> -> <Objeto, tipo identificador>
-	
 }

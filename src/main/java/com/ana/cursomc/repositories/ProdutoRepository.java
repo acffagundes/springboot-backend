@@ -16,16 +16,7 @@ import com.ana.cursomc.domain.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
-	//Usando JPQL
 	@Transactional(readOnly=true)
 	@Query("SELECT DISTINCT obj FROM Produto obj INNER JOIN obj.categorias cat WHERE obj.nome LIKE %:nome% AND cat IN :categorias")
-	
-	
-	/**Usando palavras reservadas no nome
-	 * Ao criar o nome do metodo usando palavras reservadas e colocando os nomes da variaveis
-	 * o srping entende o que deve ser feito
-	 * Referência: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
-	 */
 	Page<Produto> findDistinctByNomeContainingAndCategoriasIn(@Param("nome") String nome, @Param("categorias") List<Categoria> categorias, Pageable pageRequest);
-	
 }

@@ -1,4 +1,4 @@
-package com.ana.cursomc.services.validations;
+package com.ana.cursomc.services.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,3 +50,4 @@ public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate
 		return list.isEmpty();
 	}
 }
+

@@ -15,7 +15,8 @@ import com.ana.cursomc.services.SmtpEmailService;
 @Configuration
 @Profile("dev")
 public class DevConfig {
- 	@Autowired
+
+	@Autowired
 	private DBService dbService;
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")

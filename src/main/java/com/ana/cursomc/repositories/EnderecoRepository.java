@@ -3,11 +3,9 @@ package com.ana.cursomc.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ana.cursomc.domain.Endereco;;
+import com.ana.cursomc.domain.Endereco;
 
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
-	//JpaRepository<Produto, Integer> -> <Objeto, tipo identificador(id)>
-	
 }

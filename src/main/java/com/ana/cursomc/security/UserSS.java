@@ -28,7 +28,8 @@ public class UserSS implements UserDetails {
 		this.senha = senha;
 		this.authorities = perfis.stream().map(x -> new SimpleGrantedAuthority(x.getDescricao())).collect(Collectors.toList());
 	}
- 	public Integer getId() {
+
+	public Integer getId() {
 		return id;
 	}
 	
@@ -36,28 +37,38 @@ public class UserSS implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
- 	@Override
+
+	@Override
 	public String getPassword() {
 		return senha;
 	}
- 	@Override
+
+	@Override
 	public String getUsername() {
 		return email;
 	}
- 	@Override
+
+	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
- 	@Override
+
+	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
- 	@Override
+
+	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
- 	@Override
+
+	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+	
+	public boolean hasRole(Perfil perfil) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(perfil.getDescricao()));
 	}
 }

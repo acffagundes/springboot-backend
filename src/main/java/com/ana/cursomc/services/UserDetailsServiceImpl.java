@@ -12,7 +12,8 @@ import com.ana.cursomc.security.UserSS;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
- 	@Autowired
+
+	@Autowired
 	private ClienteRepository repo;
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.ana.cursomc.services.validations;
+package com.ana.cursomc.services.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,8 @@ import com.ana.cursomc.domain.enums.TipoCliente;
 import com.ana.cursomc.dto.ClienteNewDTO;
 import com.ana.cursomc.repositories.ClienteRepository;
 import com.ana.cursomc.resources.exception.FieldMessage;
-import com.ana.cursomc.services.validations.utils.BR;
+import com.ana.cursomc.services.validation.utils.BR;
+
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
 
@@ -36,12 +37,12 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 		if (objDto.getTipo().equals(TipoCliente.PESSOAJURIDICA.getCod()) && !BR.isValidCNPJ(objDto.getCpfOuCnpj())) {
 			list.add(new FieldMessage("cpfOuCnpj", "CNPJ inválido"));
 		}
-		
+
 		Cliente aux = repo.findByEmail(objDto.getEmail());
 		if (aux != null) {
 			list.add(new FieldMessage("email", "Email já existente"));
 		}
-
+		
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName())
